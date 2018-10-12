@@ -1,4 +1,4 @@
-import API_BASE_URL from '../config';
+import {API_BASE_URL} from '../config';
 
 export const FETCH_DOG_REQUEST = 'FETCH_DOG_REQUEST';
 export const fetchDogRequest = () => ({
@@ -8,7 +8,7 @@ export const fetchDogRequest = () => ({
 export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
 export const fetchDogSuccess = (dog) => ({
   type: FETCH_DOG_SUCCESS,
-  cat
+  dog
 });
 
 export const FETCH_DOG_ERROR = 'FETCH_DOG_ERROR';
@@ -29,6 +29,7 @@ export const fetchDog = () => dispatch => {
     return res.json();
   })
   .then(data => {
+    console.log('dog async action data:', data)
     dispatch(fetchDogSuccess(data));
   })
   .catch(err => {

@@ -1,4 +1,4 @@
-import API_BASE_URL from '../config';
+import {API_BASE_URL} from '../config';
 
 export const FETCH_CAT_REQUEST = 'FETCH_CAT_REQUEST';
 export const fetchCatRequest = () => ({
@@ -29,6 +29,7 @@ export const fetchCat = () => dispatch => {
     return res.json();
   })
   .then(data => {
+    console.log('async action data:', data)
     dispatch(fetchCatSuccess(data));
   })
   .catch(err => {
