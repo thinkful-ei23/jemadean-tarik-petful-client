@@ -29,7 +29,6 @@ export const fetchCat = () => dispatch => {
     return res.json();
   })
   .then(data => {
-    console.log('async cat data', data)
     dispatch(fetchCatSuccess(data));
   })
   .catch(err => {

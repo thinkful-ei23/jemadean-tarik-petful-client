@@ -2,6 +2,8 @@ import React from 'react';
 
 export default class Pet extends React.Component {
   render() {
+    console.log(this.props.animalInfo.imageURL);
+    console.log(typeof this.props.animalInfo.imageURL);
     return (
       <section className='animalToAdopt'>
           <header>

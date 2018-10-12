@@ -28,7 +28,6 @@ export const dogReducer = (state=initialState, action) => {
   }
 
   if (action.type === actions.ADOPT_DOG_REQUEST) {
-    console.log('adoptDog dispatched')
     return Object.assign({}, state, {
       loading: true
     });
