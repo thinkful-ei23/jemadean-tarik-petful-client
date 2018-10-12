@@ -28,6 +28,7 @@ export const catReducer = (state=initialState, action) => {
   }
 
   if (action.type === actions.ADOPT_CAT_REQUEST) {
+    console.log('adoptCat dispatched')
     return Object.assign({}, state, {
       loading: true
     });

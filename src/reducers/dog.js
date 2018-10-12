@@ -1,8 +1,7 @@
-import catData from '../dogData.json';
 import actions from '../actions';
 
 const initialState = {
-    data: catData[0],
+    data: null,
     error: null,
     loading: false
 }
@@ -29,6 +28,7 @@ export const dogReducer = (state=initialState, action) => {
   }
 
   if (action.type === actions.ADOPT_DOG_REQUEST) {
+    console.log('adoptDog dispatched')
     return Object.assign({}, state, {
       loading: true
     });

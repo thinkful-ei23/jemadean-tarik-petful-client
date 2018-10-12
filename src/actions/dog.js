@@ -29,6 +29,7 @@ export const fetchDog = () => dispatch => {
     return res.json();
   })
   .then(data => {
+    console.log('async dog data', data)
     dispatch(fetchDogSuccess(data));
   })
   .catch(err => {
@@ -56,12 +57,10 @@ export const adoptDog = () => dispatch => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
-    res.json();
-  })
-  .then(() => {
+    console.log('I am here now')
     dispatch(fetchDog());
   })
-  .then(err => {
+  .catch(err => {
     dispatch(adoptDogError(err));
   });
 };

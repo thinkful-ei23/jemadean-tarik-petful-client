@@ -1,16 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Pet from './components/Pet';
-import { fetchCat } from './actions/cat';
-import { fetchDog } from './actions/dog';
+import { fetchCat, adoptCat } from './actions/cat';
+import { fetchDog, adoptDog } from './actions/dog';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchCat());
     this.props.dispatch(fetchDog());
   }
-  onAdoptPet(){
-    console.log("Adopt Pet clicked");
+
+  onAdoptCat(){
+    console.log('onAdopCat ran');
+    this.props.dispatch(adoptCat());
+  }
+
+  onAdoptDog(){
+    console.log('onAdoptDog ran');
+    this.props.dispatch(adoptDog());
   }
   render() {
     if (this.props.catToAdopt && this.props.dogToAdopt) {
@@ -19,10 +26,10 @@ export class Dashboard extends React.Component {
           <h1>Petful</h1>
           <Pet 
             animalInfo={this.props.catToAdopt} 
-            onAdoptPet={() => this.onAdoptPet()} />
+            onAdoptPet={() => this.onAdoptCat()} />
           <Pet 
             animalInfo={this.props.dogToAdopt}
-            onAdoptPet={() => this.onAdoptPet()} />
+            onAdoptPet={() => this.onAdoptDog()} />
         </section>
       )
     }
