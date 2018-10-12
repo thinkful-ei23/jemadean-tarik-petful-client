@@ -15,7 +15,6 @@ export const dogReducer = (state=initialState, action) => {
   }
 
   if (action.type === actions.FETCH_DOG_SUCCESS) {
-    console.log('action data', action.dog)
     return Object.assign({}, state, {
       data: action.dog,
       loading: false

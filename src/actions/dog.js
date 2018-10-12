@@ -29,7 +29,6 @@ export const fetchDog = () => dispatch => {
     return res.json();
   })
   .then(data => {
-    console.log('dog async action data:', data)
     dispatch(fetchDogSuccess(data));
   })
   .catch(err => {

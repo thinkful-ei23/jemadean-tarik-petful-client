@@ -13,17 +13,27 @@ export class Dashboard extends React.Component {
     console.log("Adopt Pet clicked");
   }
   render() {
-    return (
-      <section>
-        <h1>Petful</h1>
-        <Pet 
-          animalInfo={this.props.catToAdopt} 
-          onAdoptPet={() => this.onAdoptPet()} />
-        <Pet 
-          animalInfo={this.props.dogToAdopt}
-          onAdoptPet={() => this.onAdoptPet()} />
-      </section>
-    )
+    if (this.props.catToAdopt && this.props.dogToAdopt) {
+      return (
+        <section>
+          <h1>Petful</h1>
+          <Pet 
+            animalInfo={this.props.catToAdopt} 
+            onAdoptPet={() => this.onAdoptPet()} />
+          <Pet 
+            animalInfo={this.props.dogToAdopt}
+            onAdoptPet={() => this.onAdoptPet()} />
+        </section>
+      )
+    }
+    else {
+      return (
+        <section>
+          <h1>Petful</h1>
+          <h2>Loading...</h2>
+        </section>
+      )
+    }
   }
 }
 
