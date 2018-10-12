@@ -2,7 +2,6 @@ import React from 'react';
 
 export default class Pet extends React.Component {
   render() {
-    console.log(this.props.animalInfo.name);
     return (
       <section className='animalToAdopt'>
           <header>
